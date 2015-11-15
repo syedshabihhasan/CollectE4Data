@@ -77,27 +77,27 @@ public class E4DataService extends Service implements EmpaDataDelegate, EmpaStat
         Log.d("E4Service", "Queues initialized, opening files");
         try{
             accelerationFOS = new FileOutputStream(
-                    "/storage/sdcard0/teste4/acceleration_"+ currentDateTime+".txt", false);
+                    "/sdcard/teste4/acceleration_"+ currentDateTime+".txt", false);
             accelerationOSW = new OutputStreamWriter(accelerationFOS);
 
             gsrFOS = new FileOutputStream(
-                    "/storage/sdcard0/teste4/gsr_"+currentDateTime+".txt", false);
+                    "/sdcard/teste4/gsr_"+currentDateTime+".txt", false);
             gsrOSW = new OutputStreamWriter(gsrFOS);
 
             bvpFOS = new FileOutputStream(
-                    "/storage/sdcard0/teste4/bvp_"+currentDateTime+".txt", false);
+                    "/sdcard/teste4/bvp_"+currentDateTime+".txt", false);
             bvpOSW = new OutputStreamWriter(bvpFOS);
 
             temperatureFOS = new FileOutputStream(
-                    "/storage/sdcard0/teste4/temperature_"+currentDateTime+".txt", false);
+                    "/sdcard/teste4/temperature_"+currentDateTime+".txt", false);
             temperatureOSW = new OutputStreamWriter(temperatureFOS);
 
             ibiFOS = new FileOutputStream(
-                    "/storage/sdcard0/teste4/ibi_"+currentDateTime+".txt", false);
+                    "/sdcard/teste4/ibi_"+currentDateTime+".txt", false);
             ibiOSW = new OutputStreamWriter(ibiFOS);
 
             batteryFOS = new FileOutputStream(
-                    "/storage/sdcard0/teste4/battery_"+currentDateTime+".txt", false);
+                    "/sdcard/teste4/battery_"+currentDateTime+".txt", false);
             batteryOSW = new OutputStreamWriter(batteryFOS);
 
             Log.d("E4Service", "files opened");
