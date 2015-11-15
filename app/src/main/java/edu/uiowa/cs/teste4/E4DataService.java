@@ -15,6 +15,7 @@ import com.empatica.empalink.config.EmpaStatus;
 import com.empatica.empalink.delegate.EmpaDataDelegate;
 import com.empatica.empalink.delegate.EmpaStatusDelegate;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.Calendar;
@@ -61,6 +62,7 @@ public class E4DataService extends Service implements EmpaDataDelegate, EmpaStat
     }
 
     private void initVals(String currentDateTime) {
+        createStorageSpace();
         Log.d("E4Service", "Initializing Queues");
         accelerationQueue = new ConcurrentLinkedQueue<>();
 
@@ -282,5 +284,17 @@ public class E4DataService extends Service implements EmpaDataDelegate, EmpaStat
                 calendar.get(Calendar.MINUTE)+"_"+
                 calendar.get(Calendar.SECOND)+"_"+
                 calendar.get(Calendar.MILLISECOND);
+    }
+
+    private void createStorageSpace(){
+        Log.d("E4Service", "Checking if /sdcard/teste4 exists");
+        File f = new File("/sdcard/teste4/");
+        if(!f.isDirectory()){
+            Log.d("E4Service", "Does not exist, creating...");
+            f.mkdirs();
+            Log.d("E4Service", "done!");
+        }else{
+            Log.d("E4Service", "It exists...");
+        }
     }
 }
